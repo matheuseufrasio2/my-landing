@@ -1,5 +1,12 @@
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
-}
+import React from 'react';
+import { AppProps } from 'next/app';
+import GlobalStyles from '../styles/GlobalStyles';
 
-export default MyApp
+export default function MyApp({ Component, pageProps }: AppProps) {
+  return (
+    <>
+      <GlobalStyles />
+      <Component {...pageProps} />
+    </>
+  );
+}

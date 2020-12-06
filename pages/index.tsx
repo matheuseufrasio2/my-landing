@@ -1,8 +1,9 @@
 import React from 'react';
+import { Title } from '../styles/pages/Home';
 
 const Home: React.FC = () => (
   <div>
-    <h1>Bem vindo ao meu site</h1>
+    <Title>Bem vindo ao meu site</Title>
   </div>
 );
 
