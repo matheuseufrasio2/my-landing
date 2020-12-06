@@ -1,9 +1,9 @@
-import Head from 'next/head'
+import React from 'react';
 
-export default function Home() {
-  return (
-    <div>
-      <h1>Home</h1>
-    </div>
-  )
-}
+const Home: React.FC = () => (
+  <div>
+    <h1>Bem vindo ao meu site</h1>
+  </div>
+);
+
+export default Home;
