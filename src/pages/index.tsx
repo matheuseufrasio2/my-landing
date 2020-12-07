@@ -1,16 +1,16 @@
 import React from 'react';
 import Link from 'next/link';
-import { Title } from '../../styles/pages/Home';
+import { Container, Title } from '../../styles/pages/Home';
 import SEO from '../components/SEO';
 
 export default function Home() {
   return (
-    <div>
+    <Container>
       <SEO title="Home" description="Página Inicial" />
-      <Title>Bem vindo ao meu site</Title>
+      <Title>Matheus Eufrásio | Web Developer</Title>
       <Link href="/blog">
         <a>Ir para Blog</a>
       </Link>
-    </div>
+    </Container>
   );
 }

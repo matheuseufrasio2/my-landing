@@ -17,6 +17,10 @@ export const Container = styled.div`
     justify-content: center;
     border-radius: 5px;
     margin-top: 24px;
+
+    @media (max-width: 768px) {
+      width: 20%;
+    }
   }
 `;
 
