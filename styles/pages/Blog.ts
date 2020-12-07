@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { shade } from 'polished';
 
 export const Container = styled.div`
   display: flex;
@@ -17,26 +18,57 @@ export const Container = styled.div`
     justify-content: center;
     border-radius: 5px;
     margin-top: 24px;
+    transition: 0.2s;
 
     @media (max-width: 768px) {
       width: 20%;
     }
+
+    &:hover {
+      background: ${shade(0.2, '#e5e5e5')};
+    }
   }
+`;
+
+export const Title = styled.h1`
+  font-size: 40px;
+  color: #11c6ff;
+  text-align: center;
 `;
 
 export const ListOfPosts = styled.ul`
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: column;
   width: 75%;
   list-style: none;
   margin-top: 24px;
 
+  @media (max-width: 800px) {
+    width: 90%;
+  }
+
   > li {
+    min-height: 160px;
     width: 100%;
     background: #333;
     padding: 20px 30px;
     border-radius: 5px;
+    transition: 0.2s;
+
+    @media (max-width: 800px) {
+    }
+
+    &:hover {
+      margin-left: 8px;
+      margin-right: -8px;
+    }
+
+    & + li {
+      margin-top: 24px;
+    }
+
     > h2 {
       color: #11c6ff;
     }

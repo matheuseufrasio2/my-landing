@@ -6,10 +6,9 @@ import { Document } from 'prismic-javascript/types/documents';
 import PrismicDOM from 'prismic-dom';
 import { format, parseISO } from 'date-fns';
 import pt from 'date-fns/locale/pt-BR';
-import { Title } from '../../styles/pages/Home';
 import SEO from '../components/SEO';
 import { client } from '../lib/prismic';
-import { Container, ListOfPosts } from '../../styles/pages/Blog';
+import { Container, ListOfPosts, Title } from '../../styles/pages/Blog';
 
 interface BlogProps {
   posts: Document[];
@@ -23,7 +22,7 @@ export default function Blog({ posts }: BlogProps) {
       <ListOfPosts>
         {posts.map(post => {
           return (
-            <li key={post.data.title}>
+            <li key={post.id}>
               <h2>{PrismicDOM.RichText.asText(post.data.title)}</h2>
               <p>
                 Tags:
@@ -32,10 +31,10 @@ export default function Blog({ posts }: BlogProps) {
                 })}
               </p>
               <p>
-                Data de Publicação:
+                Publicação:
                 {format(
                   parseISO(post.first_publication_date),
-                  "' Dia' dd 'de' MMMM', às ' HH:mm'h'",
+                  " dd 'de' MMMM', às ' HH:mm'h'",
                   { locale: pt },
                 )}
               </p>
