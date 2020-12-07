@@ -26,6 +26,7 @@
     "prettier"
   ],
   "rules": {
+    "import/no-duplicates": "off",
     "jsx-a11y/anchor-is-valid": "off",
     "react/require-default-props": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
