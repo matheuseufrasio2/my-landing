@@ -5,8 +5,7 @@ import Prismic from 'prismic-javascript';
 import { Document } from 'prismic-javascript/types/documents';
 import PrismicDOM from 'prismic-dom';
 import { format, parseISO } from 'date-fns';
-import pt from 'date-fns/locale/pt-BR';
-import ptBR from 'date-fns/locale/pt-BR';
+import ptBrasil from 'date-fns/locale/pt-BR';
 import SEO from '../../components/SEO';
 import { client } from '../../lib/prismic';
 import { Container, ListOfPosts, Title } from '../../../styles/pages/Blog';
@@ -57,11 +56,14 @@ export const getStaticProps: GetStaticProps = async () => {
   ]);
 
   posts.results.map(post => {
+    console.log(post.first_publication_date);
     const dateFormatted = format(
       parseISO(post.first_publication_date),
       "dd 'de' MMMM', às ' HH:mm'h'",
-      { locale: ptBR },
+      { locale: ptBrasil },
     );
+
+    console.log(dateFormatted);
 
     post.first_publication_date = dateFormatted;
     return post;
