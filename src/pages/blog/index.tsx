@@ -43,9 +43,11 @@ export default function Blog({ postList }: BlogProps) {
         })}
       </ListOfPosts> */}
       {postList.map(post => (
-        <h1>{JSON.stringify(post.first_publication_date)}</h1>
+        <h1 key={post.first_publication_date}>
+          {JSON.stringify(post.first_publication_date)}
+        </h1>
       ))}
-      {/* <p>{JSON.stringify(postList)}</p> */}
+      <p>{JSON.stringify(postList)}</p>
       <Link href="/">
         <a>Voltar</a>
       </Link>
@@ -59,18 +61,18 @@ export const getStaticProps: GetStaticProps = async () => {
   ]);
 
   posts.results.map(post => {
-    console.log(post.first_publication_date);
+    const teste = PrismicDOM.Date(post.data.release_date);
+    console.log(teste);
     const formattedDate = format(
       parseISO(post.first_publication_date),
       "dd 'de' MMMM', às ' HH:mm'h'",
       { locale: ptBrasil },
     );
 
-    console.log(formattedDate);
-
     post.first_publication_date = formattedDate;
     return post;
   });
+
   const postList = posts.results;
   return {
     props: {
