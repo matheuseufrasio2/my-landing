@@ -1,4 +1,4 @@
-import { GetServerSideProps } from 'next';
+import { GetStaticProps } from 'next';
 import Link from 'next/link';
 import React from 'react';
 import Prismic from 'prismic-javascript';
@@ -6,20 +6,20 @@ import { Document } from 'prismic-javascript/types/documents';
 import PrismicDOM from 'prismic-dom';
 import { format, parseISO } from 'date-fns';
 import pt from 'date-fns/locale/pt-BR';
-import SEO from '../components/SEO';
-import { client } from '../lib/prismic';
-import { Container, ListOfPosts, Title } from '../../styles/pages/Blog';
+import SEO from '../../components/SEO';
+import { client } from '../../lib/prismic';
+import { Container, ListOfPosts, Title } from '../../../styles/pages/Blog';
 
 interface BlogProps {
-  posts: Document[];
+  postList: Document[];
 }
 
-export default function Blog({ posts }: BlogProps) {
+export default function Blog({ postList }: BlogProps) {
   return (
     <Container>
       <SEO title="Blog" description="Blog do meu site" />
-      <Title>Blog do Matheus</Title>
-      <ListOfPosts>
+      <Title>Blog | Matheus Eufrásio</Title>
+      {/* <ListOfPosts>
         {posts.map(post => {
           return (
             <li key={post.id}>
@@ -41,8 +41,8 @@ export default function Blog({ posts }: BlogProps) {
             </li>
           );
         })}
-      </ListOfPosts>
-      {/* <p>{JSON.stringify(posts)}</p> */}
+      </ListOfPosts> */}
+      <p>{JSON.stringify(postList)}</p>
       <Link href="/">
         <a>Voltar</a>
       </Link>
@@ -50,14 +50,38 @@ export default function Blog({ posts }: BlogProps) {
   );
 }
 
-export const getServerSideProps: GetServerSideProps<BlogProps> = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const posts = await client().query([
     Prismic.Predicates.at('document.type', 'post'),
   ]);
 
+  posts.results.map(post => {
+    const dateFormatted = format(
+      parseISO(post.first_publication_date),
+      "dd 'de' MMMM', às ' HH:mm'h'",
+      { locale: pt },
+    );
+
+    post.first_publication_date = dateFormatted;
+    return post;
+  });
+  const postList = posts.results;
   return {
     props: {
-      posts: posts.results,
+      postList,
     },
+    revalidate: 5,
   };
 };
+
+// export const getServerSideProps: GetServerSideProps<BlogProps> = async () => {
+//   const posts = await client().query([
+//     Prismic.Predicates.at('document.type', 'post'),
+//   ]);
+
+//   return {
+//     props: {
+//       posts: posts.results,
+//     },
+//   };
+// };
