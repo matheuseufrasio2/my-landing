@@ -42,7 +42,10 @@ export default function Blog({ postList }: BlogProps) {
           );
         })}
       </ListOfPosts> */}
-      <p>{JSON.stringify(postList)}</p>
+      {postList.map(post => (
+        <h1>{JSON.stringify(post.first_publication_date)}</h1>
+      ))}
+      {/* <p>{JSON.stringify(postList)}</p> */}
       <Link href="/">
         <a>Voltar</a>
       </Link>
@@ -57,15 +60,15 @@ export const getStaticProps: GetStaticProps = async () => {
 
   posts.results.map(post => {
     console.log(post.first_publication_date);
-    const dateFormatted = format(
+    const formattedDate = format(
       parseISO(post.first_publication_date),
       "dd 'de' MMMM', às ' HH:mm'h'",
       { locale: ptBrasil },
     );
 
-    console.log(dateFormatted);
+    console.log(formattedDate);
 
-    post.first_publication_date = dateFormatted;
+    post.first_publication_date = formattedDate;
     return post;
   });
   const postList = posts.results;
