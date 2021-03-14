@@ -5,7 +5,6 @@ export const Container = styled.div`
   align-items: center;
   flex-direction: column;
   width: 100%;
-  margin-top: 24px;
 
   > a {
     background: #e5e5e5;

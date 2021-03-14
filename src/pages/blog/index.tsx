@@ -9,6 +9,7 @@ import ptBrasil from 'date-fns/locale/pt-BR';
 import SEO from '../../components/SEO';
 import { client } from '../../lib/prismic';
 import { Container, ListOfPosts, Title } from '../../../styles/pages/Blog';
+import NavBar from '../../components/Navbar';
 
 interface BlogProps {
   postList: Document[];
@@ -61,8 +62,6 @@ export const getStaticProps: GetStaticProps = async () => {
   ]);
 
   posts.results.map(post => {
-    const teste = PrismicDOM.Date(post.data.release_date);
-    console.log(teste);
     const formattedDate = format(
       parseISO(post.first_publication_date),
       "dd 'de' MMMM', às ' HH:mm'h'",
