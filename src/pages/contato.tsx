@@ -69,9 +69,9 @@ export default function Contato() {
             </li>
           </ul>
           <Form
-            onSubmit={event => {
+            onSubmit={(event: React.FormEvent<HTMLFormElement>) => {
               event.preventDefault();
-              const form = event.target;
+              const form = event.currentTarget;
               const data = new FormData(form);
               const xhr = new XMLHttpRequest();
               xhr.open(form.method, form.action);
