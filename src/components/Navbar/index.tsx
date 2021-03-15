@@ -42,7 +42,7 @@ export default function NavBar({ toggle }: NavBarProps) {
             </Link>
           </NavItem>
           <NavItem>
-            <Link href="/contact">
+            <Link href="/contato">
               <a>Contato</a>
             </Link>
           </NavItem>

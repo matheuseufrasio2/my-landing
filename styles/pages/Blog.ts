@@ -59,7 +59,7 @@ export const ListOfPosts = styled.ul`
   > li {
     min-height: 160px;
     width: 100%;
-    background: #333;
+    background: #121214;
     padding: 20px 30px;
     border-radius: 5px;
     transition: 0.2s;

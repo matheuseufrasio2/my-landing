@@ -41,7 +41,7 @@ export const ContentNavBar = styled.div`
     transition: all 0.2s;
 
     &:hover {
-      color: #01bf71;
+      color: #11c6ff;
     }
   }
 `;
@@ -60,7 +60,7 @@ export const MobileIcon = styled.div`
     transition: all 0.2s;
 
     &:hover {
-      color: #01bf71;
+      color: #11c6ff;
     }
   }
 `;
@@ -92,9 +92,9 @@ export const NavItem = styled.div`
     transition: all 0.2s;
 
     &:hover {
-      color: #01bf71;
+      color: #11c6ff;
       background: ${shade(0.2, '#121214')};
-      border-bottom: 2px solid #01bf71;
+      border-bottom: 2px solid #11c6ff;
     }
   }
 `;

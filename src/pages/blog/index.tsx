@@ -6,6 +6,8 @@ import { Document } from 'prismic-javascript/types/documents';
 import PrismicDOM from 'prismic-dom';
 import { format, parseISO } from 'date-fns';
 import ptBrasil from 'date-fns/locale/pt-BR';
+import ptBR from 'date-fns/locale/pt-BR';
+import ApiSearchResponse from 'prismic-javascript/types/ApiSearchResponse';
 import SEO from '../../components/SEO';
 import { client } from '../../lib/prismic';
 import { Container, ListOfPosts, Title } from '../../../styles/pages/Blog';
@@ -26,8 +28,8 @@ export default function Blog({ postList }: BlogProps) {
       <NavBar toggle={toggle} />
       <SEO title="Blog" description="Blog do meu site" />
       <Title>Blog | Matheus Eufrásio</Title>
-      {/* <ListOfPosts>
-        {posts.map(post => {
+      <ListOfPosts>
+        {postList.map(post => {
           return (
             <li key={post.id}>
               <h2>{PrismicDOM.RichText.asText(post.data.title)}</h2>
@@ -40,20 +42,20 @@ export default function Blog({ postList }: BlogProps) {
               <p>
                 Publicação:
                 {format(
-                  parseISO(post.first_publication_date),
+                  parseISO(post.data.release_date),
                   " dd 'de' MMMM', às ' HH:mm'h'",
-                  { locale: pt },
+                  { locale: ptBR },
                 )}
               </p>
             </li>
           );
         })}
-      </ListOfPosts> */}
-      {postList.map(post => (
+      </ListOfPosts>
+      {/* {postList.map(post => (
         <h1 key={post.first_publication_date}>
           {JSON.stringify(post.first_publication_date)}
         </h1>
-      ))}
+      ))} */}
       {/* <p>{JSON.stringify(postList)}</p> */}
       <Link href="/">
         <a>Voltar</a>
@@ -86,15 +88,3 @@ export const getStaticProps: GetStaticProps = async () => {
     revalidate: 5,
   };
 };
-
-// export const getServerSideProps: GetServerSideProps<BlogProps> = async () => {
-//   const posts = await client().query([
-//     Prismic.Predicates.at('document.type', 'post'),
-//   ]);
-
-//   return {
-//     props: {
-//       posts: posts.results,
-//     },
-//   };
-// };

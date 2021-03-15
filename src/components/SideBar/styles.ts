@@ -24,7 +24,7 @@ export const CloseIcon = styled(FaTimes)`
   transition: all 0.2s;
 
   &:hover {
-    color: #01bf71;
+    color: #11c6ff;
   }
 `;
 export const Icon = styled.div`
@@ -48,7 +48,7 @@ export const SideBarMenu = styled.ul`
   text-align: center;
 
   @media screen and (max-width: 768px) {
-    grid-template-rows: repeat(6, 100px);
+    grid-template-rows: repeat(6, 80px);
   }
 
   > a {
@@ -63,7 +63,7 @@ export const SideBarMenu = styled.ul`
     cursor: pointer;
 
     &:hover {
-      color: #01bf71;
+      color: #11c6ff;
       transition: 0.2s ease-in-out;
     }
   }

@@ -36,8 +36,8 @@ export default function SideBar({ toggle, isOpen }: SideBarProps) {
               Blog
             </a>
           </Link>
-          <Link href="/contact" passHref>
-            <a href="/contact" onClick={toggle}>
+          <Link href="/contato" passHref>
+            <a href="/contato" onClick={toggle}>
               Contato
             </a>
           </Link>
