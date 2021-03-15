@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { shade } from 'polished';
 
 interface FormProps {
-  $isFilled: boolean;
+  $isFilled?: boolean;
 }
 
 export const Container = styled.div`
