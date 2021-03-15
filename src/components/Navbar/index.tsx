@@ -27,6 +27,11 @@ export default function NavBar({ toggle }: NavBarProps) {
 
         <NavMenu>
           <NavItem>
+            <Link href="/">
+              <a>Página Inicial</a>
+            </Link>
+          </NavItem>
+          <NavItem>
             <Link href="/portfolio">
               <a>Portfólio</a>
             </Link>

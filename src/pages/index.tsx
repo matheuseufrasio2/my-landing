@@ -1,19 +1,16 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import React, { useCallback, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Link from 'next/link';
 import { Container, Title } from '../../styles/pages/Home';
 import SEO from '../components/SEO';
 import Loader from '../components/Loader';
 import NavBar from '../components/Navbar';
 import SideBar from '../components/SideBar';
+import { HeaderContext } from '../contexts/HeaderContext';
 
 export default function Home() {
+  const { isOpen, toggle } = useContext(HeaderContext);
   const [loading, setLoading] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggle = () => {
-    setIsOpen(!isOpen);
-  };
 
   return (
     <Container>

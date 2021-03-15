@@ -6,7 +6,6 @@ export const Container = styled.div`
   align-items: center;
   flex-direction: column;
   width: 100%;
-  margin-top: 24px;
 
   > a {
     background: #e5e5e5;
@@ -26,6 +25,14 @@ export const Container = styled.div`
 
     &:hover {
       background: ${shade(0.2, '#e5e5e5')};
+    }
+  }
+
+  > p {
+    max-width: 1100px;
+
+    @media screen and (max-width: 768px) {
+      max-width: 95%;
     }
   }
 `;

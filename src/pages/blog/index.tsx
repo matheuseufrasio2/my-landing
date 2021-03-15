@@ -1,6 +1,6 @@
 import { GetStaticProps } from 'next';
 import Link from 'next/link';
-import React from 'react';
+import React, { useContext } from 'react';
 import Prismic from 'prismic-javascript';
 import { Document } from 'prismic-javascript/types/documents';
 import PrismicDOM from 'prismic-dom';
@@ -9,15 +9,21 @@ import ptBrasil from 'date-fns/locale/pt-BR';
 import SEO from '../../components/SEO';
 import { client } from '../../lib/prismic';
 import { Container, ListOfPosts, Title } from '../../../styles/pages/Blog';
+import SideBar from '../../components/SideBar';
 import NavBar from '../../components/Navbar';
+import { HeaderContext } from '../../contexts/HeaderContext';
 
 interface BlogProps {
   postList: Document[];
 }
 
 export default function Blog({ postList }: BlogProps) {
+  const { isOpen, toggle } = useContext(HeaderContext);
+
   return (
     <Container>
+      <SideBar isOpen={isOpen} toggle={toggle} />
+      <NavBar toggle={toggle} />
       <SEO title="Blog" description="Blog do meu site" />
       <Title>Blog | Matheus Eufrásio</Title>
       {/* <ListOfPosts>
@@ -48,7 +54,7 @@ export default function Blog({ postList }: BlogProps) {
           {JSON.stringify(post.first_publication_date)}
         </h1>
       ))}
-      <p>{JSON.stringify(postList)}</p>
+      {/* <p>{JSON.stringify(postList)}</p> */}
       <Link href="/">
         <a>Voltar</a>
       </Link>

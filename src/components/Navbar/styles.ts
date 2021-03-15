@@ -1,7 +1,8 @@
+import { shade } from 'polished';
 import styled from 'styled-components';
 
 export const NavContainer = styled.nav`
-  background: #333;
+  background: #121214;
   height: 80px;
   display: flex;
   justify-content: center;
@@ -37,6 +38,11 @@ export const ContentNavBar = styled.div`
     font-weight: bold;
     text-decoration: none;
     height: 100%;
+    transition: all 0.2s;
+
+    &:hover {
+      color: #01bf71;
+    }
   }
 `;
 
@@ -83,5 +89,12 @@ export const NavItem = styled.div`
     cursor: pointer;
     padding: 0 1rem;
     height: 100%;
+    transition: all 0.2s;
+
+    &:hover {
+      color: #01bf71;
+      background: ${shade(0.2, '#121214')};
+      border-bottom: 2px solid #01bf71;
+    }
   }
 `;

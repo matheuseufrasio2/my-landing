@@ -21,6 +21,11 @@ export default function SideBar({ toggle, isOpen }: SideBarProps) {
       </Icon>
       <SideBarWrapper>
         <SideBarMenu>
+          <Link href="/" passHref>
+            <a href="/" onClick={toggle}>
+              Página Inicial
+            </a>
+          </Link>
           <Link href="/portfolio" passHref>
             <a href="/portfolio" onClick={toggle}>
               Portfólio
