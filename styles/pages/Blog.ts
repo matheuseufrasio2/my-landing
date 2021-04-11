@@ -37,13 +37,60 @@ export const Container = styled.div`
   }
 `;
 
-export const Title = styled.h1`
-  font-size: 40px;
-  color: #11c6ff;
-  text-align: center;
+export const PostList = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 75%;
+  max-width: 700px;
+  list-style: none;
+  margin-top: 24px;
+
+  > a {
+    background: #1f2729;
+    padding: 1rem;
+    border-radius: 5px;
+    transition: all 0.2s;
+
+    display: flex;
+    flex-direction: column;
+
+    > h1 {
+      font-size: 2rem;
+    }
+
+    > p {
+      margin-top: 1.5rem;
+    }
+
+    &:hover {
+      > h1 {
+        color: #11c6ff;
+      }
+      background: ${shade(0.1, '#1f2729')};
+    }
+  }
 `;
 
-export const ListOfPosts = styled.ul`
+export const PostInfo = styled.ul`
+  margin-top: 1.5rem;
+  display: flex;
+
+  > li {
+    display: flex;
+
+    > p {
+      margin-left: 0.5rem;
+    }
+
+    & + li {
+      margin-left: 1rem;
+    }
+  }
+`;
+
+export const ListOfPosts = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
