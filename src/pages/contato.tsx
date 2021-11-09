@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 import { FiMail, FiPhoneCall } from 'react-icons/fi';
 import { FaWhatsapp } from 'react-icons/fa';
 import Link from 'next/link';
@@ -7,7 +7,7 @@ import {
   Form,
   Section,
   StyledLink,
-} from '../../styles/pages/Contato';
+} from '../styles/pages/Contato';
 import NavBar from '../components/Navbar';
 import SEO from '../components/SEO';
 import SideBar from '../components/SideBar';

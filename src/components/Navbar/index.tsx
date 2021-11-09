@@ -1,12 +1,13 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React from 'react';
 import { FaBars } from 'react-icons/fa';
+import { NavItem } from '../NavItem';
 import {
   NavContainer,
   ContentNavBar,
   MobileIcon,
   NavMenu,
-  NavItem,
 } from './styles';
 
 interface NavBarProps {
@@ -14,6 +15,9 @@ interface NavBarProps {
 }
 
 export default function NavBar({ toggle }: NavBarProps) {
+  const { asPath } = useRouter();
+  console.log(asPath);
+
   return (
     <NavContainer>
       <ContentNavBar>
@@ -26,26 +30,10 @@ export default function NavBar({ toggle }: NavBarProps) {
         </MobileIcon>
 
         <NavMenu>
-          <NavItem>
-            <Link href="/">
-              <a>Página Inicial</a>
-            </Link>
-          </NavItem>
-          <NavItem>
-            <Link href="/portfolio">
-              <a>Portfólio</a>
-            </Link>
-          </NavItem>
-          <NavItem>
-            <Link href="/blog">
-              <a>Blog</a>
-            </Link>
-          </NavItem>
-          <NavItem>
-            <Link href="/contato">
-              <a>Contato</a>
-            </Link>
-          </NavItem>
+          <NavItem title="Página Inicial" path="/" />
+          <NavItem title="Portifólio" path="/portfolio" />
+          <NavItem title="Blog" path="/blog" />
+          <NavItem title="Contato" path="/contato" />
         </NavMenu>
       </ContentNavBar>
     </NavContainer>

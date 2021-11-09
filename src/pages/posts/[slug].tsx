@@ -20,7 +20,7 @@ import {
   PostTop,
   PostInfo,
   ArticlePost,
-} from '../../../styles/pages/Post';
+} from '../../styles/pages/Post';
 
 interface Post {
   first_publication_date: string | null;

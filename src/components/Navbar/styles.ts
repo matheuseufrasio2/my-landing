@@ -52,7 +52,7 @@ export const MobileIcon = styled.div`
   @media screen and (max-width: 768px) {
     display: block;
     position: absolute;
-    top: 0;
+    top: 7px;
     right: 0;
     transform: translate(-100%, 60%);
     font-size: 1.8rem;
@@ -77,24 +77,4 @@ export const NavMenu = styled.ul`
   }
 `;
 
-export const NavItem = styled.div`
-  height: 80px;
 
-  > a {
-    color: #fff;
-
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    cursor: pointer;
-    padding: 0 1rem;
-    height: 100%;
-    transition: all 0.2s;
-
-    &:hover {
-      color: #11c6ff;
-      background: ${shade(0.2, '#121214')};
-      border-bottom: 2px solid #11c6ff;
-    }
-  }
-`;

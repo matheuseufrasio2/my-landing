@@ -1,6 +1,6 @@
-import React, { InputHTMLAttributes, useCallback, useState } from 'react';
+import { InputHTMLAttributes, useCallback, useState } from "react";
 
-import { Container } from './styles';
+import { Container } from "./styles";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   name: string;

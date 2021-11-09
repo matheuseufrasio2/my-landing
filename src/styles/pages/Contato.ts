@@ -1,5 +1,5 @@
-import styled, { css } from 'styled-components';
-import { shade } from 'polished';
+import styled, { css } from "styled-components";
+import { shade } from "polished";
 
 interface FormProps {
   $isFilled?: boolean;
@@ -28,7 +28,7 @@ export const Container = styled.div`
     }
 
     &:hover {
-      background: ${shade(0.2, '#e5e5e5')};
+      background: ${shade(0.2, "#e5e5e5")};
     }
   }
 
@@ -178,13 +178,13 @@ export const Form = styled.form<FormProps>`
 
     > span {
       ${props =>
-        props.$isFilled
-          ? css`
+    props.$isFilled
+      ? css`
               color: #e91e63;
               font-size: 12px;
               transform: translateY(-20px);
             `
-          : css`
+      : css`
               color: #666;
               font-size: 12px;
             `}
@@ -236,8 +236,8 @@ export const Form = styled.form<FormProps>`
     color: #fff;
 
     &:hover {
-      background-color: ${shade(0.2, '#D62828')};
-      border: 2px solid ${shade(0.2, '#D62828')};
+      background-color: ${shade(0.2, "#D62828")};
+      border: 2px solid ${shade(0.2, "#D62828")};
     }
   }
 `;

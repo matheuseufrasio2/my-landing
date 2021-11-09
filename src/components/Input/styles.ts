@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from "styled-components";
 
 interface InputProps {
   $isFilled: boolean;
@@ -31,28 +31,20 @@ export const Container = styled.div<InputProps>`
       pointer-events: none;
       transition: 0.5s;
       color: #666;
+      ${({ $isFilled }) => $isFilled ? css`
+        color: #e91e63;
+        font-size: 12px;
+        transform: translateY(-20px);
+      ` : css`
+        font-size: 12px;
+      `}
 
-      ${props =>
-        props.$isFilled
-          ? css`
-              color: #e91e63;
-              font-size: 12px;
-              transform: translateY(-20px);
-            `
-          : css`
-              font-size: 12px;
-            `}
-      ${props =>
-        props.$isFocused
-          ? css`
-              color: #e91e63;
-              font-size: 12px;
-              transform: translateY(-20px);
-            `
-          : !props.$isFilled &&
-            css`
-              font-size: 16px;
-            `}
+      ${({ $isFocused, $isFilled }) => $isFocused ? css`
+        color: #e91e63;
+        font-size: 12px;
+        transform: translateY(-20px);
+      ` : !$isFilled && css`
+        font-size: 16px;
+      `}
     }
-  }
 `;

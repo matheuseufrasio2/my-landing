@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import React, { useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 import Link from 'next/link';
-import { Container, Title } from '../../styles/pages/Home';
+import { Container, Title } from '../styles/pages/Home';
 import SEO from '../components/SEO';
 import Loader from '../components/Loader';
 import NavBar from '../components/Navbar';
@@ -27,6 +27,7 @@ export default function Home() {
           {loading ? <Loader /> : 'Ir para Blog'}
         </a>
       </Link>
+
     </Container>
   );
 }

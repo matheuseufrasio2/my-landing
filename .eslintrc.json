@@ -2,13 +2,22 @@
   "env": {
     "browser": true,
     "es2021": true,
+    "jest": true,
     "node": true
   },
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "typescript": {}
+    }
+  },
   "extends": [
+    "eslint:recommended",
     "plugin:react/recommended",
-    "airbnb",
     "plugin:@typescript-eslint/recommended",
-    "prettier/@typescript-eslint",
+    "plugin:@typescript-eslint/eslint-recommended",
     "plugin:prettier/recommended"
   ],
   "parser": "@typescript-eslint/parser",
@@ -22,10 +31,11 @@
   "plugins": [
     "react",
     "@typescript-eslint",
-    "react-hooks",
-    "prettier"
+    "react-hooks"
   ],
   "rules": {
+    "react/prop-types": "off",
+    "react/react-in-jsx-scope": "off",
     "jsx-a11y/click-events-have-key-events": "off",
     "import/no-duplicates": "off",
     "jsx-a11y/anchor-is-valid": "off",
@@ -36,7 +46,14 @@
     "no-use-before-define": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
-    "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".tsx"
+        ]
+      }
+    ],
     "import/prefer-default-export": "off",
     "camelcase": "off",
     "@typescript-eslint/ban-types": "off",
@@ -48,10 +65,5 @@
         "tsx": "never"
       }
     ]
-  },
-  "settings": {
-    "import/resolver": {
-      "typescript": {}
-    }
   }
 }

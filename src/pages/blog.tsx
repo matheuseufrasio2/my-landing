@@ -1,16 +1,16 @@
-import { GetStaticProps } from 'next';
-import Link from 'next/link';
-import React, { useContext, useState } from 'react';
-import Prismic from 'prismic-javascript';
-import { format } from 'date-fns';
-import ptBR from 'date-fns/locale/pt-BR';
-import { RiCalendarLine, RiUserLine } from 'react-icons/ri';
-import SEO from '../components/SEO';
-import { client } from '../lib/prismic';
-import { Container, PostList, PostInfo } from '../../styles/pages/Blog';
-import SideBar from '../components/SideBar';
-import NavBar from '../components/Navbar';
-import { HeaderContext } from '../contexts/HeaderContext';
+import { GetStaticProps } from "next";
+import Link from "next/link";
+import { useContext, useState } from "react";
+import Prismic from "prismic-javascript";
+import { format } from "date-fns";
+import ptBR from "date-fns/locale/pt-BR";
+import { RiCalendarLine, RiUserLine } from "react-icons/ri";
+import SEO from "../components/SEO";
+import { client } from "../lib/prismic";
+import { Container, PostList, PostInfo } from "../styles/pages/Blog";
+import SideBar from "../components/SideBar";
+import NavBar from "../components/Navbar";
+import { HeaderContext } from "../contexts/HeaderContext";
 
 interface Post {
   uid?: string;
@@ -40,7 +40,7 @@ export default function Blog({ postsPagination }: HomeProps) {
         uid: post.uid,
         first_publication_date: format(
           new Date(post.first_publication_date),
-          'dd MMM yyyy',
+          "dd MMM yyyy",
           {
             locale: ptBR,
           },
@@ -61,7 +61,7 @@ export default function Blog({ postsPagination }: HomeProps) {
             uid: post.uid,
             first_publication_date: format(
               new Date(post.first_publication_date),
-              'dd MMM yyyy',
+              "dd MMM yyyy",
               {
                 locale: ptBR,
               },
@@ -75,8 +75,8 @@ export default function Blog({ postsPagination }: HomeProps) {
           return {
             uid: post.uid,
             first_publication_date: post.first_publication_date.replace(
-              'abr',
-              'Abr',
+              "abr",
+              "Abr",
             ),
             data: post.data,
           };
@@ -131,9 +131,9 @@ export default function Blog({ postsPagination }: HomeProps) {
 
 export const getStaticProps: GetStaticProps = async () => {
   const posts = await client().query(
-    [Prismic.Predicates.at('document.type', 'post')],
+    [Prismic.Predicates.at("document.type", "post")],
     {
-      fetch: ['post.title', 'post.subtitle', 'post.author_name', 'post.slug'],
+      fetch: ["post.title", "post.subtitle", "post.author_name", "post.slug"],
       pageSize: 2,
     },
   );

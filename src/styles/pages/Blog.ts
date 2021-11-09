@@ -48,6 +48,7 @@ export const PostList = styled.div`
   margin-top: 24px;
 
   > a {
+    color: inherit;
     background: #1f2729;
     padding: 1rem;
     border-radius: 5px;
@@ -79,6 +80,7 @@ export const PostInfo = styled.ul`
 
   > li {
     display: flex;
+    align-items: center;
 
     > p {
       margin-left: 0.5rem;
